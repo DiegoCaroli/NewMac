@@ -17,7 +17,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Prevent Photos opening when a new device is connected
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-# Enable Zoom
+# System Preferences
 echo "Opening System Preferences"
 open /Applications/System\ Preferences.app 
 echo "
@@ -25,20 +25,14 @@ Go to Accessibility settings:
 - Enable Zoom
 "
 read -p "Press enter to continue"
-
 # Configure keyboard
-echo "Opening System Preferences"
-open /Applications/System\ Preferences.app 
 echo "
 Go to keyboard settings:
 - Drag the Delay Until Repeat slider to Short
 - Drag the Key Repeat slider to Fast
 "
 read -p "Press enter to continue"
-
 # Enable App Exposé
-echo "Opening System Preferences"
-open /Applications/System\ Preferences.app 
 echo "
 Go to Trackpad settings:
 - Enable App Exposé
