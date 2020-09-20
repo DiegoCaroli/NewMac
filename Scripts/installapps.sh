@@ -21,10 +21,10 @@ brew cask install slack
 echo "
 Opening Mac App Store"
 open /Applications/App\ Store.app 
-
 echo "
 Download the following from the Mac App Store:
 - Xcode"
 read -p "Press enter to continue"
 echo "- Jira"
+read -p "Press enter to continue"
 
