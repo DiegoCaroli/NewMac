@@ -2,21 +2,30 @@
 
 echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-echo "Installing Sublime Text"
-brew cask install sublime-text
 echo "Installing Fastlane"
-brew cask install fastlane
-echo "Installing Charles"
-brew cask install charles
-echo "Installing Zeplin"
-brew cask install zeplin
-echo "Installing Sketch"
-brew cask install sketch
+brew install --cask fastlane
 echo "Installing 1Password"
-brew cask install 1password
+brew install --cask 1password
+echo "Installing Paw"
+brew install --cask paw
+echo "Installing Charles"
+brew install --cask charles
+echo "Installing Tower"
+brew install --cask tower
+echo "Installing Fork"
+brew cask install fork
+echo "Installing Sketch"
+brew install --cask sketch
+echo "Installing Sublime Text"
+brew install --cask sublime-text
 echo "Installing Slack"
-brew cask install slack
+brew install --cask slack
+echo "Installing Zeplin"
+brew install --cask zeplin
+echo "Installing imagemagick"
+brew install --cask imagemagick
+
+read -p "Press enter to continue"
 
 echo "
 Opening Mac App Store"
@@ -26,5 +35,4 @@ Download the following from the Mac App Store:
 - Xcode"
 read -p "Press enter to continue"
 echo "- Jira"
-read -p "Press enter to continue"
 
