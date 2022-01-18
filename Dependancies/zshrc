@@ -1,0 +1,65 @@
+#------------------------------------------------------------------------------#
+# Aliases                                                                      #
+#------------------------------------------------------------------------------#
+
+## Generic
+alias c='clear'
+
+## Xcode
+alias rdd='killall Xcode; sleep 1 && rm -rf ~/Library/Developer/Xcode/DerivedData && echo "Removed Xcode derived data" && open /Applications/Xcode.app'
+alias removepp='rm -rf ~/Library/MobileDevice/Provisioning\ Profiles'
+
+## Simulator
+alias sim='xcrun simctl openurl booted'
+simrec() {
+    echo -n "Use CTRL+C to stop recording";
+    xcrun simctl io booted recordVideo "$1";
+}
+
+## Swift Package Manager
+alias spmupdate="swift package update && swift package generate-xcodeproj"
+alias spmproj="swift package generate-xcodeproj"
+
+## Git
+alias fixmes="todos"
+alias clearbranches='git remote prune origin && git branch | grep -v "master" | xargs git branch -D'
+alias clearstashes='git stash clear'
+alias savemyass="git reset --soft HEAD~1"
+alias gitdiff="git diff --cached --stat"
+alias gitdiffmaster="git diff --numstat master | awk '{ added += $1; removed += $2 } END { print "+" added " -" removed }'"
+alias gc="git fetch && git checkout"
+alias gcm="gc master && git pull"
+
+## Design
+alias cslackmojify="mogrify -resize 128x128 -unsharp 2x1.4+0.5+0 -quality 100 -verbose"
+
+#------------------------------------------------------------------------------#
+# Functions                                                                    #
+#------------------------------------------------------------------------------#
+
+## Design
+
+### Frames all pngs in the current directory in an iOS device, or a given single
+### image.
+frame() {
+    mkdir $TEMP_FRAME_DIR
+    if [ -z "$1" ]; then
+        echo "Framing all pngs in this directory"
+        cp *.png $TEMP_FRAME_DIR
+    else
+        echo "Framing $1"
+        cp "$1" $TEMP_FRAME_DIR
+    fi
+    cd $TEMP_FRAME_DIR
+    frameit
+    cd ..
+    mv $TEMP_FRAME_DIR/*_framed.png .
+    rm -rf $TEMP_FRAME_DIR
+    open .
+}
+
+#------------------------------------------------------------------------------#
+# Exports                                                                      #
+#------------------------------------------------------------------------------#
+
+export PATH="$HOME/.fastlane/bin:$PATH"
